@@ -23,7 +23,8 @@ public class Course implements Serializable{
     @JoinColumn(name = "course_id")
     private List<Review> reviews;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+                           CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable(
             name = "course_students",
             joinColumns = @JoinColumn(name = "course_id"),

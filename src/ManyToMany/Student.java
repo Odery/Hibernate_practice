@@ -19,7 +19,8 @@ public class Student implements Serializable{
 
     private String email;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+                           CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable(
             name = "course_students",
             joinColumns = @JoinColumn(name = "student_id"),
