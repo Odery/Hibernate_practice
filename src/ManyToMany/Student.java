@@ -2,6 +2,7 @@ package ManyToMany;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity @Table(name = "students")
@@ -78,5 +79,15 @@ public class Student implements Serializable{
     @Override
     public String toString() {
         return "\nFirst name: "+firstName+"\nLastName"+"\nEmail: "+email;
+    }
+
+    //adding new Course to List
+    public void addCourse(Course course){
+        if (course == null)
+            throw new NullPointerException("Student = null");
+        if (courses == null)
+            courses = new ArrayList<Course>();
+        courses.add(course);
+        course.addStudent(this);
     }
 }

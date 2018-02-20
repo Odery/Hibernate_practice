@@ -73,7 +73,7 @@ public class Course implements Serializable{
         return reviews;
     }
 
-    // adding Review to Reviews list
+    // adding Review to List
     public void addReview(Review review){
         if(review == null)
             throw new NullPointerException("Review = null");
@@ -81,5 +81,15 @@ public class Course implements Serializable{
         if(reviews == null)
             reviews = new ArrayList<Review>();
         reviews.add(review);
+    }
+
+    //adding new Student to List
+    public void addStudent(Student student){
+        if (student == null)
+            throw new NullPointerException("Student = null");
+        if (students == null)
+            students = new ArrayList<Student>();
+        students.add(student);
+        student.addCourse(this);
     }
 }
