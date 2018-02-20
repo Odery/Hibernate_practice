@@ -91,6 +91,5 @@ public class Course implements Serializable{
         if (students == null)
             students = new ArrayList<Student>();
         students.add(student);
-        student.addCourse(this);
     }
 }

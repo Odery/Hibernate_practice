@@ -79,7 +79,7 @@ public class Student implements Serializable{
 
     @Override
     public String toString() {
-        return "\nFirst name: "+firstName+"\nLastName"+"\nEmail: "+email;
+        return "\nFirst name: "+firstName+"\nLastName"+lastName+"\nEmail: "+email+"\n";
     }
 
     //adding new Course to List
@@ -89,6 +89,5 @@ public class Student implements Serializable{
         if (courses == null)
             courses = new ArrayList<Course>();
         courses.add(course);
-        course.addStudent(this);
     }
 }
