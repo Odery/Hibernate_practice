@@ -1,4 +1,6 @@
-package OneToOne_OneToMany;
+package ManyToMany;
+
+import OneToOne_OneToMany.Review;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,6 +22,14 @@ public class Course implements Serializable{
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)  //One to many uni-directional
     @JoinColumn(name = "course_id")
     private List<Review> reviews;
+
+    @ManyToMany
+    @JoinTable(
+            name = "course_students",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
+    private List<Student> students;
 
     //constructors
     public Course() {
@@ -48,6 +58,10 @@ public class Course implements Serializable{
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
+    }
+
+    public List<Student> getStudents() {
+        return students;
     }
 
     @Override

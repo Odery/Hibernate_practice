@@ -1,4 +1,5 @@
-package OneToOne_OneToMany;
+package ManyToMany;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
